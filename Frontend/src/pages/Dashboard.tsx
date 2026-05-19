@@ -4,7 +4,7 @@ import toast from "react-hot-toast";
 import { CSVLink } from "react-csv";
 import { getLeads, createLead, updateLead, deleteLead } from "../api/leadApi";
 import type { Lead } from "../types/lead.types";
-
+import { FiMoon, FiSun } from "react-icons/fi";
 const Dashboard = () => {
   const navigate = useNavigate();
   const user = JSON.parse(localStorage.getItem("user") || "{}");
@@ -214,9 +214,14 @@ const Dashboard = () => {
 
           <button
             onClick={toggleTheme}
-            className="bg-purple-600 hover:bg-purple-700 hover:scale-105 transition-all duration-300 text-white px-5 py-2 rounded-lg"
+            className={`w-12 h-12 flex items-center justify-center rounded-full transition-all duration-300 shadow-lg hover:scale-110
+            ${
+              darkMode
+                ? "bg-yellow-400 text-black hover:bg-yellow-300"
+                : "bg-black text-white hover:bg-gray-700"
+            }`}
           >
-            {darkMode ? "Light Mode" : "Dark Mode"}
+            {darkMode ? <FiSun size={22} /> : <FiMoon size={22} />}
           </button>
 
           {/* EXPORT CSV */}
@@ -504,5 +509,4 @@ const Dashboard = () => {
     </div>
   );
 };
-
 export default Dashboard;

@@ -13,8 +13,10 @@ const app = express();
 
 app.use(
   cors({
-    origin:
+    origin:[
+        "http://localhost:5173",
       "https://lead-management-ochre-tau.vercel.app",
+    ],
     credentials: true,
   })
 );
