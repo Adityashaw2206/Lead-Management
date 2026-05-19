@@ -10,7 +10,15 @@ import errorMiddleware from "./middleware/error.middleware";
 
 const app = express();
 
-app.use(cors());
+
+app.use(
+  cors({
+    origin:
+      "https://lead-management-ochre-tau.vercel.app",
+    credentials: true,
+  })
+);
+
 app.use(express.json());
 
 
