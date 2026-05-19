@@ -189,6 +189,7 @@ const Dashboard = () => {
     Email: lead.email,
     Status: lead.status,
     Source: lead.source,
+    "Created At": new Date(lead.createdAt).toLocaleString(),
   }));
 
   return (
